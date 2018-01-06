@@ -4,18 +4,23 @@ Hack the Gap 2018 - Hackathon project
 
 ## Built With
 
-List technologies and frameworks here
+- SQL / PostgreSQL, Express, Node.js
+- Passport for user authentication
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+In a terminal window, navigate to the project folder once saved on your computer.
+- Run `npm install`
+- `npm start`
+- Set up SQL server on local computer, such as PostgreSQL through Postico
 
 ### Prerequisites
 
 Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
-- List other prerequisites here
+- [PostgreSQL](https://www.postgresql.org/)
+- [Express](http://expressjs.com/)
 
 
 ### Installing
@@ -23,11 +28,16 @@ Link to software that is required to install the app (e.g. node).
 Steps to get the development environment running.
 
 ```sql
+CREATE DATABASE "medtracker";
+
 CREATE TABLE "users" (
   "id" serial primary key,
   "username" varchar(80) not null UNIQUE,
   "password" varchar(240) not null
 );
+
+INSERT INTO users (username, password)
+VALUES ('admin', '1234');
 ```
 
 ## Screen Shot
@@ -62,4 +72,4 @@ Add additional notes about how to deploy this on a live system
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
+* Chris Black, Kris Szafranski & Prime Academy for the app shell
