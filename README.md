@@ -22,9 +22,6 @@ CREATE TABLE "users" (
   "username" varchar(80) not null UNIQUE,
   "password" varchar(240) not null
 );
-
-INSERT INTO users (username, password)
-VALUES ('admin', '1234');
 ```
 - Register a new log in to enter site
 
@@ -51,26 +48,18 @@ CREATE TABLE "users" (
 );
 ```
 
-## Screen Shot
-
-Include one or two screen shots of your project here (optional). Remove if unused.
-
-## Documentation
-
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
-
 ### Completed Features
 
 High level list of items completed.
 
-- [x] Feature a
-- [x] Feature b
+- [ ] Allow caretaker to add medications
+- [ ] Caretaker can send medication reminders to their loved ones
 
 ### Next Steps
 
 Features that you would like to add at some point in the future.
 
-- [ ] Feature c
+- [ ] View medication schedule on a calendar
 
 ## Deployment
 
