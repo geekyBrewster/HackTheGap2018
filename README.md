@@ -1,6 +1,6 @@
-# Name of Project
+# Caring with Kindness: Med Tracker
 
-One Paragraph of project description goes here. Link to the live version of the app if it's hosted on Heroku.
+Hack the Gap 2018 - Hackathon project
 
 ## Built With
 
