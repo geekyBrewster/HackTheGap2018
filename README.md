@@ -12,7 +12,7 @@ Hack the Gap 2018 - Hackathon project
 In a terminal window, navigate to the project folder once saved on your computer.
 - Run `npm install`
 - `npm start`
-- Set up SQL server on local computer, such as PostgreSQL through Postico
+- Set up SQL server on local computer, such as PostgreSQL through Postico, using code below:
 
 ```sql
 CREATE DATABASE "medtracker";
@@ -26,6 +26,7 @@ CREATE TABLE "users" (
 INSERT INTO users (username, password)
 VALUES ('admin', '1234');
 ```
+- Register a new log in to enter site
 
 ### Prerequisites
 
@@ -48,9 +49,6 @@ CREATE TABLE "users" (
   "username" varchar(80) not null UNIQUE,
   "password" varchar(240) not null
 );
-
-INSERT INTO users (username, password)
-VALUES ('admin', '1234');
 ```
 
 ## Screen Shot
