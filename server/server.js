@@ -12,6 +12,8 @@ var registerRouter = require('./routes/register.router');
 var medicationRouter = require('./routes/medication.router');
 var caretakerRouter = require('./routes/case.router');
 var pilltakerRouter = require('./routes/case.router');
+var twilioRouter = require('./routes/twilio.router');
+
 
 var port = process.env.PORT || 5000;
 
@@ -32,9 +34,12 @@ app.use(passport.session());
 // Routes
 app.use('/register', registerRouter);
 app.use('/user', userRouter);
-app.use('/medication, medicationRouter');
-app.use('/caretaker, caretakerRouter');
-app.use('/case, pilltakerRouter');
+app.use('/medication', medicationRouter);
+app.use('/caretaker', caretakerRouter);
+app.use('/case', pilltakerRouter);
+app.use('/twilio', twilioRouter);
+
+
 
 // Catch all bucket, must be last!
 app.use('/', indexRouter);

@@ -43,6 +43,15 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/twilio', {
+      templateUrl: '/views/templates/twilio.html',
+      controller: 'InfoController',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .otherwise({
       redirectTo: 'home'
     });
