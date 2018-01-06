@@ -14,6 +14,19 @@ In a terminal window, navigate to the project folder once saved on your computer
 - `npm start`
 - Set up SQL server on local computer, such as PostgreSQL through Postico
 
+```sql
+CREATE DATABASE "medtracker";
+
+CREATE TABLE "users" (
+  "id" serial primary key,
+  "username" varchar(80) not null UNIQUE,
+  "password" varchar(240) not null
+);
+
+INSERT INTO users (username, password)
+VALUES ('admin', '1234');
+```
+
 ### Prerequisites
 
 Link to software that is required to install the app (e.g. node).
