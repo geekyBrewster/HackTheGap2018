@@ -13,8 +13,8 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as lc'
     })
-    .when('/medications', {
-      templateUrl: '/views/templates/medications.html',
+    .when('/medication', {
+      templateUrl: '/views/templates/medication.html',
       controller: 'MedicationController as mc'
     })
     .when('/caretaker', {
