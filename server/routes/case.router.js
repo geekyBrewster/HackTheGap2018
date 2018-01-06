@@ -26,17 +26,45 @@ router.get('/caretaker/:id', function(req, res) {
   });
 });
 
-//** -- GET ROUTE -- Pilltaker Info -- **//
+//** -- GET ROUTE -- Single Pilltaker -- **//
 router.get('/case/:id', function(req, res) {
   console.log('in server getting pilltaker');
-  console.log('with pilltaker id', req.params.id);
+  console.log('with pilltaker id', req.query.pilltaker_id, ' and caretaker_id: ', req.query.caretaker_id);
+
+  var pilltakerID = parseInt(req.query.pilltaker_id);
+  var caretakerID = parseInt(req.query.caretaker_id);
 
   pool.connect(function(err, client, done, next) {
     if(err) {
       console.log("Error connecting: ", err);
       //next(err);
     }
-    client.query("select * from pilltakers where id = " + req.params.id + ";",
+    client.query('SELECT * FROM "pilltaker" JOIN "caretaker" ON "pilltaker"."caretaker_id" = "caretaker"."id" ' +
+    'JOIN "job_site" ON "job_site"."id" = "goal"."jobsite_id" WHERE "pilltaker_id" = $1 AND "caretaker"."id" = $2', [pilltaker_id, caretaker_id],
+        function (err, result) {
+          done();
+          if(err) {
+            console.log("Error inserting data: ", err);
+            //next(err);
+          } else {
+            console.log('RESULT ROWS', result.rows);
+            res.send(result.rows);
+          }
+        });
+  });
+});
+
+//** -- GET ROUTE -- ALL Pilltakers -- **//
+router.get('/case/all/:id', function(req, res) {
+  console.log('in server getting all pilltakers');
+  console.log('with caretaker id', req.params.id);
+
+  pool.connect(function(err, client, done, next) {
+    if(err) {
+      console.log("Error connecting: ", err);
+      //next(err);
+    }
+    client.query("select * from pilltakers where caretaker_id = $1;", [req.params.id],
         function (err, result) {
           done();
           if(err) {

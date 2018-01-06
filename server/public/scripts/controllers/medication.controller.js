@@ -16,7 +16,7 @@ myApp.controller('MedicationController', function($http, UserService) {
       vm.clientToAdd = {};
       getAllMedications();
     }).catch(function(){
-      console.log('ERROR ERROR ERROR ERROR');
+      console.log('ERROR adding medication');
     });
   };
 
@@ -41,9 +41,14 @@ myApp.controller('MedicationController', function($http, UserService) {
     });
   };
 
-
   // Delete a medication
-
+  vm.deleteMedication = function(med_id) {
+      console.log('delete medication w/ id: ' + med_id);
+      $http.delete('/medication/' + med_id)
+        .then(function(response){
+          getAllMedications();
+        });
+    };
 
 
 }); //End of controller
