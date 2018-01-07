@@ -31,12 +31,14 @@ router.get('/all/:id', function(req, res) {
   console.log('in server getting all pilltakers');
   console.log('with caretaker id', req.params.id);
 
+  var dbQuery = 'select * from "pilltakers" LEFT JOIN "users" on "pilltakers"."caretakerID" = "users"."id" where "pilltakers"."caretakerID" = 2;';
+
   pool.connect(function(err, client, done, next) {
     if(err) {
       console.log("Error connecting: ", err);
       //next(err);
     }
-    client.query("select * from pilltakers where caretakerID = $1;", [req.params.id],
+    client.query(dbQuery, [req.params.id],
         function (err, result) {
           done();
           if(err) {
