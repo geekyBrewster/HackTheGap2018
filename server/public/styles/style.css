@@ -78,3 +78,77 @@ li a:hover {
   text-decoration: underline;
   color: #eee;
 }
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+body {
+  padding-top: 25px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+.btn-primary {
+  background-color: #179FDB;
+  border-color: #179FDB;
+}
+
+.bg-primary {
+  background-color: #179FDB !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #179FDB !important;
+    border-color: #179FDB !important;
+}
+
+.bg-green{
+  background-color: #17B783;
+}
+
+.bg-dblue{
+  background-color: #144182;
+}
+
+.bg-red{
+  background-color: #EB636F;
+}
+
+.navbar-brand {
+  margin: 0 auto;
+}
