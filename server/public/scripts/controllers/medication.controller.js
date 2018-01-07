@@ -10,7 +10,29 @@ myApp.controller('MedicationController', function($http, UserService) {
   vm.pilltakerId = "";
   var medication = {}; //data object being built and sent to server
 
-  // Add a medication
+  // Add a medication - Short Form
+  /*vm.addMedication = function(medName, frequency, dosage,
+    sideEffects, instructions, description, pilltakerID){
+    console.log('in addMedication');
+
+    medication.medName = medName;
+    medication.frequency = frequency;
+    medication.dosage = dosage;
+    medication.sideEffects = sideEffects;
+    medication.instructions = instructions;
+    medication.description = description;
+    medication.pilltakerID = pilltakerID;
+
+    $http.post('/medication', medication).then(function(response){
+      console.log('received response from addMedication POST');
+      vm.clientToAdd = {};
+      getAllMedications(pilltakerID);
+    }).catch(function(){
+      console.log('ERROR adding medication');
+    });
+  };*/
+
+  //Add Medication - Long Form
   vm.addMedication = function(medName, frequency, frequencyUnits, dosage, dosageUnits,
     sideEffects, instructions, description, imageURL, notes, reminder1, reminderTime1,
     reminder2, reminderTime2, reminder3, reminderTime3, pilltakerID){
@@ -32,7 +54,8 @@ myApp.controller('MedicationController', function($http, UserService) {
     medication.reminderTime2 = reminderTime2;
     medication.reminder3 = reminder3;
     medication.reminderTime3  = reminderTime3;
-    medication.pilltakerID = pilltakerID;
+    //medication.pilltakerID = pilltakerID;
+    medication.pilltakerID = 1;
 
     $http.post('/medication', medication).then(function(response){
       console.log('received response from addMedication POST');
@@ -72,7 +95,7 @@ myApp.controller('MedicationController', function($http, UserService) {
   // Delete a medication
   vm.deleteMedication = function(medicationID) {
       console.log('delete medication w/ id: ' + medicationID);
-      
+
       $http.delete('/medication/' + medicationID)
         .then(function(response){
           getAllMedications();
