@@ -3,7 +3,7 @@ var router = express.Router();
 var pool = require('../modules/pool.js');
 
 //** -- GET ROUTE -- Single Pilltaker -- **//
-router.get('/case/:id', function(req, res) {
+router.get('/:id', function(req, res) {
   console.log('in server getting pilltaker');
   console.log('with pilltaker id', req.query.pilltaker_id, ' and caretakerid: ', req.query.caretakerid);
 
@@ -31,7 +31,7 @@ router.get('/case/:id', function(req, res) {
 });
 
 //** -- GET ROUTE -- ALL Pilltakers -- **//
-router.get('/case/all/:id', function(req, res) {
+router.get('/all/:id', function(req, res) {
   console.log('in server getting all pilltakers');
   console.log('with caretaker id', req.params.id);
 
@@ -55,7 +55,7 @@ router.get('/case/all/:id', function(req, res) {
 });
 
 //** -- POST ROUTE - Add Pilltaker Info -- **//
-router.post('/case', function(req, res) {
+router.post('/', function(req, res) {
   console.log('in server adding a new pilltaker', req.body);
 
   pool.connect(function(err, client, done, next) {
@@ -79,7 +79,7 @@ router.post('/case', function(req, res) {
 });
 
 //** -- DELETE ROUTE - Pilltaker -- **//
-router.delete('/case/:id', function(req, res) {
+router.delete('/:id', function(req, res) {
   console.log('in server deleting pilltaker entry');
   console.log('pilltaker id: ', req.params.id);
 
