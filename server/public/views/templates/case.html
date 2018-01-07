@@ -7,9 +7,9 @@
           <a href="#"><p>edit</p></a>
           </div>
           <hr>
-          <p><strong>NAME:</strong> Danny <br />
-            <strong>D.O.B:</strong> 10/27/1963<br />
-            <strong>PHONE:</strong> 612-867-5309</p>
+          <p><strong>NAME:</strong><span ng-model="cc.pilltaker.firstName"> </span> <br />
+            <strong>D.O.B:</strong><span ng-model="cc.pilltaker.dob"> </span><br />
+            <strong>PHONE:</strong> <span ng-model="cc.pilltaker.phone"> </span></p>
           <h5 class="pt-2">MEDICATION INFO</h5>
           <hr>
           <!-- Profile Section -->
@@ -17,8 +17,8 @@
             <div class="col-lg-12 mb-2">
               <div class="card h-100">
                 <div class="card-body bg-green text-white d-flex justify-content-between">
-                  <div class="card-text">XANAX</div>
-                  <div class="card-text">1 DOSE <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+                  <div class="card-text"><span ng-model="cc.pilltaker.medName"></span></div>
+                  <div class="card-text"><span ng-model="cc.pilltaker.doseage"></span> <i class="fa fa-caret-right" aria-hidden="true"></i></div>
                 </div>
               </div>
             </div>
@@ -53,7 +53,7 @@
               <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>-->
             </div>
             <div class="col-md-4">
-              <a class="btn btn-lg btn-primary btn-block" href="#">ADD MEDICATION</a>
+              <button class="btn btn-lg btn-primary btn-block" ng-click="cc.saveSomething()">ADD MEDICATION</button>
             </div>
           </div>
 

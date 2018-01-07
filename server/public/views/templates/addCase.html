@@ -41,15 +41,15 @@
           <form>
             <div class="form-group">
               <label for="exampleFormControlInput1">NAME</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nickname">
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nickname" ng-model="cc.firstName">
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">DATE OF BIRTH</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY">
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY" ng-model="cc.dob">
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">PHONE NUMBER</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="(XXX) XXX-XXXX">
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="(XXX) XXX-XXXX" ng-model="cc.phone">
             </div>
           </form>
         </div>
@@ -61,7 +61,7 @@
         <div class="col-md-8">
         </div>
         <div class="col-md-4">
-          <a class="btn btn-lg btn-primary btn-block" href="#">SAVE</a>
+          <button class="btn btn-lg btn-primary btn-block" ng-click="cc.addPilltaker(firstName, lastName, dob, phone, notes, caretakerID)">SAVE</button>
         </div>
       </div>
     </div>
