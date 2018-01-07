@@ -18,7 +18,7 @@ router.get('/all/:id', function(req, res) {
             console.log("Error inserting data: ", err);
             //next(err);
           } else {
-            console.log('RESULT ROWS', result.rows);
+            //console.log('RESULT ROWS', result.rows);
             res.send(result.rows);
           }
         });
