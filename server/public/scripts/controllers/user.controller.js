@@ -7,7 +7,9 @@ myApp.controller('UserController', function($http, $location, UserService) {
   vm.allPilltakers = [];
   getAllPilltakers(1);
 
-  vm.patients = [{firstName: 'Bob', lastName:'Johnson'}, {firstName: 'Mary', lastName: 'Peterson'}];
+  vm.patients = [
+    {firstName: 'Bob', lastName:'Johnson', reminderTime: 'Noon'},
+    {firstName: 'Mary', lastName: 'Peterson', reminderTime: '10 am'}];
 
   vm.getOnePilltaker = function(pilltakerID){
     $location.path('/case');

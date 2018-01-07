@@ -48,10 +48,28 @@ body, html {
   margin-left: 10px;
 }
 
+.btn {
+  font-size: 1.0em;
+}
+
+#addMedBtn {
+  color: white;
+}
+
 .navbar {
   background-color: #333333;
   width: 100%;
   border-radius: 0px;
+}
+
+.medForm input, .medForm select {
+  font-size: 1.0em;
+  min-height: 1.2em;
+}
+
+#selectTime {
+  font-size: 0.5em;
+  min-height: 1.5em;
 }
 
 ul {

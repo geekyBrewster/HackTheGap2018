@@ -2,11 +2,11 @@
 <div class="container">
   <!-- Page Content -->
   <!-- START ADD MEDICATION SECTION -->
-  <h5>ADD MEDICATION</h5>
+  <h2><em>ADD MEDICATION</em></h2>
   <hr>
   <!-- Medication Form Section -->
   <div class="row">
-    <div class="col-lg-12 mb-2">
+    <div class="col-lg-12 mb-2 medForm">
       <form>
         <div class="form-group">
           <label for="exampleFormControlInput1">DESCRIPTION</label>
@@ -48,20 +48,20 @@
 
   <!-- START MEDICATION INFO SECTION -->
   <div class="d-flex justify-content-between">
-  <h5>MEDICATION INFO</h5>
-  <a><p>edit</p></a>
+  <a>MEDICATION INFO</a>
+  <!-- <a><p>edit</p></a> -->
   </div>
   <hr>
   <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> -->
-  <h5 class="pt-2">SCHEDULE REMINDERS</h5>
+  <h2 class="pt-2"><em>SCHEDULE REMINDERS</em></h2>
   <hr>
   <!-- Set reminder section -->
-  <div class="row">
+  <div class="row medForm">
     <div class="col-lg-12 mb-2">
       <form>
         <div class="form-group">
-          <label for="exampleFormControlSelect1">PLEASE PICK A TIME</label>
-          <select class="form-control" id="exampleFormControlSelect1" ng-model="mc.reminderTime1">
+          <label for="selectTime">PLEASE PICK A TIME</label>
+          <select class="form-control" id="selectTime" ng-model="mc.reminderTime1">
             <option>1:00 P.M.</option>
             <option>2:00 P.M.</option>
             <option>3:00 P.M.</option>
@@ -72,9 +72,9 @@
             <option>8:00 P.M.</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group medForm">
           <label for="exampleFormControlTextarea1">COMPOSE A MESSAGE</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model="mc.reminder1"></textarea>
+          <textarea class="form-control" rows="3" ng-model="mc.reminder1"></textarea>
         </div>
       </form>
     </div>

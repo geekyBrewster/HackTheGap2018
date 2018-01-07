@@ -35,7 +35,6 @@ from: '+16122497250',
 body: 'Hey Jane wanted to see how you are doing today since you started a new medication',
 })
 .then(message => console.log(message.sid)).catch(error=>console.log(error));
-
 });
 
 // clear all server session information about this user
