@@ -5,6 +5,7 @@ myApp.controller('CaseController', function($http, UserService) {
   vm.userObject = UserService.userObject;
 
   vm.pilltaker = {};
+  vm.testPilltaker = {firstName: 'Boba', lastName: 'Fett', dob: 'Dec. 01 1970'};
   vm.allPilltakers = [];
   var pilltakerObject = {};
 
@@ -35,9 +36,9 @@ myApp.controller('CaseController', function($http, UserService) {
   function getOnePilltaker(pilltakerID){
     console.log('in getOnePilltaker');
 
-    $http.get('/' + pilltakerID).then(function(response) {
+    $http.get('/case/' + pilltakerID).then(function(response) {
       console.log(response.data);
-      vm.pilltaker = response.data;
+      vm.pilltaker = response.data[0];
       console.log('single pilltaker is:', vm.pilltaker);
     });
   }

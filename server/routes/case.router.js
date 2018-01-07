@@ -12,7 +12,7 @@ router.get('/:id', function(req, res) {
       console.log("Error connecting: ", err);
       //next(err);
     }
-    client.query('SELECT * FROM "pilltaker" INNER JOIN "medications"."pilltakerID" = "pilltaker"."id" WHERE "id" = $1', [req.params.id],
+    client.query('SELECT * FROM "medications" LEFT JOIN "pilltakers" on "medications"."pilltakerID" = "pilltakers"."id" WHERE "pilltakers"."id" = $1;', [req.params.id],
         function (err, result) {
           done();
           if(err) {
