@@ -7,34 +7,62 @@ myApp.controller('MedicationController', function($http, UserService) {
   vm.medication = [];
   vm.singleMedication = {};
   vm.medicationToAdd = {};
+  vm.pilltakerId = "";
+  var medication = {}; //data object being built and sent to server
 
   // Add a medication
-  vm.addMedication = function(){
+  vm.addMedication = function(medName, frequency, frequencyUnits, dosage, dosageUnits,
+    sideEffects, instructions, description, imageURL, notes, reminder1, reminderTime1,
+    reminder2, reminderTime2, reminder3, reminderTime3, pilltakerID){
     console.log('in addMedication');
-    $http.post('/medication', vm.medicationToAdd).then(function(response){
+
+    medication.medName = medName;
+    medication.frequency = frequency;
+    medication.frequencyUnits = frequencyUnits;
+    medication.dosage = dosage;
+    medication.dosageUnits = dosageUnits;
+    medication.sideEffects = sideEffects;
+    medication.instructions = instructions;
+    medication.description = description;
+    medication.imageURL = imageURL;
+    medication.notes = notes;
+    medication.reminder1 = reminder1;
+    medication.reminderTime1 = reminderTime1;
+    medication.reminder2 = reminder2;
+    medication.reminderTime2 = reminderTime2;
+    medication.reminder3 = reminder3;
+    medication.reminderTime3  = reminderTime3;
+    medication.pilltakerID = pilltakerID;
+
+    $http.post('/medication', medication).then(function(response){
       console.log('received response from addMedication POST');
       vm.clientToAdd = {};
-      getAllMedications();
+      getAllMedications(pilltakerID);
     }).catch(function(){
       console.log('ERROR adding medication');
     });
   };
 
-  // GET All medications
-  function getAllMedications(){
+  // GET All medications for patient
+  function getAllMedications(pilltakerID){
     console.log('in getAllMeds');
-    $http.get('/medication').then(function(response) {
+    $http.get('/medication/all/' + pilltakerID).then(function(response) {
       console.log(response.data);
       vm.medication = response.data;
       console.log('medication array is:', vm.medication);
     });
   }
 
-  // GET a medication
-  vm.getOneMedication = function(med_id){
+  // GET ONE medication for patient
+  vm.getOneMedication = function(pilltakerID, medicationID){
     console.log('in getOneMed');
 
-    $http.get('/medication/' + med_id).then(function(response) {
+    var config = { params: {
+      medicationID: medicationID,
+      pilltakerID: pilltakerID
+    }};
+
+    $http.get('/medication/' + config).then(function(response) {
       console.log(response.data);
       vm.singleMedication = response.data;
       console.log('single med is:', vm.singleMedication);
@@ -42,9 +70,10 @@ myApp.controller('MedicationController', function($http, UserService) {
   };
 
   // Delete a medication
-  vm.deleteMedication = function(med_id) {
-      console.log('delete medication w/ id: ' + med_id);
-      $http.delete('/medication/' + med_id)
+  vm.deleteMedication = function(medicationID) {
+      console.log('delete medication w/ id: ' + medicationID);
+      
+      $http.delete('/medication/' + medicationID)
         .then(function(response){
           getAllMedications();
         });

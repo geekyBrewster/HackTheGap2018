@@ -5,18 +5,14 @@ var pool = require('../modules/pool.js');
 //** -- GET ROUTE -- Single Pilltaker -- **//
 router.get('/:id', function(req, res) {
   console.log('in server getting pilltaker');
-  console.log('with pilltaker id', req.query.pilltaker_id, ' and caretakerid: ', req.query.caretakerid);
-
-  var pilltakerID = parseInt(req.query.pilltaker_id);
-  var caretakerID = parseInt(req.query.caretakerid);
+  console.log('with pilltaker id', req.params.id);
 
   pool.connect(function(err, client, done, next) {
     if(err) {
       console.log("Error connecting: ", err);
       //next(err);
     }
-    client.query('SELECT * FROM "pilltaker" JOIN "caretaker" ON "pilltaker"."caretakerid" = "caretaker"."id" ' +
-    'JOIN "job_site" ON "job_site"."id" = "goal"."jobsite_id" WHERE "id" = $1 AND "caretaker"."id" = $2', [pilltaker_id, caretakerid],
+    client.query('SELECT * FROM "pilltaker" WHERE "id" = $1', [req.params.id],
         function (err, result) {
           done();
           if(err) {
@@ -40,7 +36,7 @@ router.get('/all/:id', function(req, res) {
       console.log("Error connecting: ", err);
       //next(err);
     }
-    client.query("select * from pilltakers where caretaker_id = $1;", [req.params.id],
+    client.query("select * from pilltakers where caretakerID = $1;", [req.params.id],
         function (err, result) {
           done();
           if(err) {
@@ -58,13 +54,22 @@ router.get('/all/:id', function(req, res) {
 router.post('/', function(req, res) {
   console.log('in server adding a new pilltaker', req.body);
 
+  var dbQuery = 'insert into pilltakers ("firstName", "lastName", ' +
+  '"dob", "phone", "notes", "caretakerID") values [$1, $2, $3, $4, $5, $6];';
+
+  firstName = req.body.firstName;
+  lastName = req.body.lastName;
+  dob = req.body.dob;
+  phone = req.body.phone;
+  notes = req.body.notes;
+  caretakerID = req.body.caretakerID;
+
   pool.connect(function(err, client, done, next) {
     if(err) {
       console.log("Error connecting: ", err);
       //next(err);
     }
-    client.query("insert into pilltakers values [$1, $2, $3, $4, $5, $6];",
-    [item1, item2, item3, item4, item5, item6],
+    client.query(dbQuery,[firstName, lastName, dob, phone, notes, caretakerID],
         function (err, result) {
           done();
           if(err) {
@@ -83,14 +88,13 @@ router.delete('/:id', function(req, res) {
   console.log('in server deleting pilltaker entry');
   console.log('pilltaker id: ', req.params.id);
 
-  var id = req.params.id;
   pool.connect(function(err, client, done, next) {
     if(err) {
       console.log("Error connecting: ", err);
       //next(err);
     }
 
-    client.query("DELETE from pilltakers where id = $1", [id],
+    client.query("DELETE from pilltakers where id = $1", [req.params.id],
         function (err, result) {
           done();
           if(err) {
