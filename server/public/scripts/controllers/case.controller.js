@@ -8,6 +8,8 @@ myApp.controller('CaseController', function($http, UserService) {
   vm.allPilltakers = [];
   var pilltakerObject = {};
 
+  getOnePilltaker(1);
+
   // Add pilltaker details
   vm.addPilltaker = function(firstName, lastName, dob, phone, notes, caretakerID){
     console.log('in addPilltaker');
@@ -19,6 +21,8 @@ myApp.controller('CaseController', function($http, UserService) {
     pilltakerObject.notes = notes;
     pilltakerObject.caretakerID = caretakerID;
 
+    console.log('pilltaker to add: ', pilltakerObject);
+
     $http.post('/', pilltakerObject).then(function(response){
       console.log('received response from addPilltaker POST');
       vm.pilltaker = {};
@@ -28,7 +32,7 @@ myApp.controller('CaseController', function($http, UserService) {
   };
 
   // GET single pilltaker for a caretaker
-  vm.getOnePilltaker = function(pilltakerID){
+  function getOnePilltaker(pilltakerID){
     console.log('in getOnePilltaker');
 
     $http.get('/' + pilltakerID).then(function(response) {
@@ -36,7 +40,7 @@ myApp.controller('CaseController', function($http, UserService) {
       vm.pilltaker = response.data;
       console.log('single pilltaker is:', vm.pilltaker);
     });
-  };
+  }
 
   // GET single pilltaker for a caretaker
   vm.getAllPilltaker = function(caretakerID){

@@ -10,27 +10,11 @@
       <i class="fa fa-calendar" aria-hidden="true"></i>
     </div>
     <!-- Profile Section -->
-    <div ng-repeat="person in uc.patients">
-      <div class="row">
-        <div class="col-lg-12 mb-2">
-          <div class="card h-100">
-            <div class="card-body bg-green text-white d-flex justify-content-between">
-              <div class="card-text">{{person.firstName}}</div>
-              <div class="">
-                <span></span>
-              </div>
-              <div class="card-text">{{person.lastName}} <i class="fa fa-caret-right" aria-hidden="true"></i></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<!--
     <div class="row">
       <div class="col-lg-12 mb-2">
         <div class="card h-100">
-          <div class="card-body bg-green text-white d-flex justify-content-between">
-            <div class="card-text">Danny</div>
+          <div class="card-body bg-green text-white d-flex justify-content-between" ng-click="uc.getOnePilltaker(1)">
+            <div class="card-text">Boba</div>
             <div class="card-text">8:00 A.M. <i class="fa fa-caret-right" aria-hidden="true"></i></div>
           </div>
         </div>
@@ -58,7 +42,22 @@
         </div>
       </div>
     </div>
- -->
+
+    <div ng-repeat="person in uc.patients">
+      <div class="row">
+        <div class="col-lg-12 mb-2">
+          <div class="card h-100">
+            <div class="card-body bg-info text-white d-flex justify-content-between">
+              <div class="card-text">{{person.firstName}}</div>
+              <div class="">
+                <span></span>
+              </div>
+              <div class="card-text">{{person.lastName}} <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Call to Action Section -->
     <div class="row mb-4">
@@ -66,7 +65,7 @@
         <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>-->
       </div>
       <div class="col-md-4">
-        <a class="btn btn-lg btn-primary btn-block" href="#">ADD PROFILE</a>
+        <a class="btn btn-lg btn-primary btn-block" href="#/addCase">ADD PROFILE</a>
       </div>
     </div>
 

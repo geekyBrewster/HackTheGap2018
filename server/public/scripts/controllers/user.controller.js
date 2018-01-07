@@ -1,4 +1,4 @@
-myApp.controller('UserController', function(UserService) {
+myApp.controller('UserController', function($http, $location, UserService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
@@ -8,4 +8,8 @@ myApp.controller('UserController', function(UserService) {
   //vm.userObject.getAllPilltakers();
 
   vm.patients = [{firstName: 'Bob', lastName:'Johnson'}, {firstName: 'Mary', lastName: 'Peterson'}];
+
+  vm.getOnePilltaker = function(pilltakerID){
+    $location.path('/case');
+  };
 });
