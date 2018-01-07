@@ -10,7 +10,7 @@ var indexRouter = require('./routes/index.router');
 var userRouter = require('./routes/user.router');
 var registerRouter = require('./routes/register.router');
 var medicationRouter = require('./routes/medication.router');
-var caretakerRouter = require('./routes/case.router');
+var caretakerRouter = require('./routes/caretaker.router');
 var pilltakerRouter = require('./routes/case.router');
 var twilioRouter = require('./routes/twilio.router');
 

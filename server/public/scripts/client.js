@@ -36,7 +36,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/info', {
       templateUrl: '/views/templates/info.html',
-      controller: 'InfoController',
+      controller: 'InfoController as ic',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
@@ -45,7 +45,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/twilio', {
       templateUrl: '/views/templates/twilio.html',
-      controller: 'InfoController',
+      controller: 'TwilioController as tc',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
