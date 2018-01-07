@@ -1,18 +1,21 @@
-# Caring with Kindness: Med Tracker
+# KINDeed: Med Tracker for Caretakers
 
-Hack the Gap 2018 - Hackathon project
+(Hack the Gap 2018 - Hackathon project)
+
+This medication tracker can be used by caretakers to track the Prescriptions used by their loved ones and send text message reminders to those loved ones.
 
 ## Built With
 
-- SQL / PostgreSQL, Express, Node.js
+- PostgreSQL, Express, Node.js, Angular 1.6
 - Passport for user authentication
+- Twilio for text message notifications
 
 ## Getting Started
 
 In a terminal window, navigate to the project folder once saved on your computer.
 - Run `npm install`
 - `npm start`
-- Set up SQL server on local computer, such as PostgreSQL through Postico, using code below:
+- Set up SQL server on local computer using code below:
 
 ```sql
 CREATE DATABASE "medtracker";
@@ -23,16 +26,17 @@ CREATE TABLE "users" (
   "password" varchar(240) not null
 );
 ```
-- Register a new log in to enter site
+- Register a new log in order to enter site
 
 ### Prerequisites
 
 Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
+- [AngularJS](https://angularjs.org/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Express](http://expressjs.com/)
-
+- [Twilio] (https://www.twilio.com/)
 
 ### Installing
 
@@ -47,23 +51,19 @@ CREATE TABLE "users" (
   "password" varchar(240) not null
 );
 ```
++ dbSetup.sql file for additional tables and mock data
 
 ### Completed Features
 
-High level list of items completed.
-
-- [ ] Allow caretaker to add medications
-- [ ] Caretaker can send medication reminders to their loved ones
+- [x] Allow caretaker to add medications
+- [x] Caretaker can send medication reminders to their loved ones
 
 ### Next Steps
 
-Features that you would like to add at some point in the future.
-
 - [ ] View medication schedule on a calendar
+- [ ] Send message reminders on a save schedule
+- [ ] Incorporate IoT and SmartTV integration for reminder messages
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Authors
 
@@ -72,4 +72,4 @@ Add additional notes about how to deploy this on a live system
 
 ## Acknowledgments
 
-* Chris Black, Kris Szafranski & Prime Academy for the app shell
+* Prime Academy for the SEAN stack app shell

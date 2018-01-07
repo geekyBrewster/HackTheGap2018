@@ -59,6 +59,6 @@ VALUES ('William', 'DaFoe', 'June 13, 1958', '5075557987', 'Forgets to read the 
 INSERT INTO medications ("medName", "frequency", "frequencyUnits", "dosage","dosageUnits", "sideEffects",
   "instructions", "description", "imageURL", "notes", "reminder1", "reminderTime1", "reminder2",
   "reminderTime2", "reminder3", "reminderTime3", "pilltakerID")
-VALUES ("Warfarin", "2", "day", "10","mg", "Extra bleeding, drowsiness",
-  "instructions", "description", "imageURL", "notes", "reminder1", "reminderTime1", "reminder2",
-  "reminderTime2", "reminder3", "reminderTime3", "pilltakerID");
+VALUES ('Warfarin', '2', 'day', '10','mg', 'Extra bleeding, drowsiness',
+  'instructions', 'description', 'imageURL', 'notes', 'reminder1', 'reminderTime1', 'reminder2',
+  'reminderTime2', 'reminder3', 'reminderTime3', 'pilltakerID');
