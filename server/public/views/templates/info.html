@@ -1,9 +1,101 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-  <p>
-    In Info
-  </p>
-  <div ng-repeat="person in ic.allPilltakers">
-    <span>Name: {{person.firstName}}</span>
-  </div>
+  <!DOCTYPE html>
+  <html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+      <title>Caretaker App</title>
+
+      <!-- Bootstrap core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Custom styles for this template -->
+      <link href="css/style.css" rel="stylesheet">
+
+    </head>
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <a class="navbar-brand" href="#">Caretaker App</a>
+        </nav>
+      </header>
+
+    <body>
+      <!-- Page Content -->
+      <div class="container">
+        <h5>Schedule</h5>
+        <hr>
+        <p>Today, May 14th, 2018</p>
+        <!-- Profile Section -->
+
+
+        <!-- /.row -->
+        <div class="row" ng-repeat = "p in ic.allPilltakers" >
+          <div class="col-lg-12 mb-2">
+            <div class="card h-100">
+              <div class="card-body">
+                <p class="card-text" ng-model= "ic.pilltaker" >{{p.firstname}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+
+
+
+        <!-- Features Section --
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>Modern Business Features</h2>
+            <p>The Modern Business template by Start Bootstrap includes:</p>
+            <ul>
+              <li>
+                <strong>Bootstrap v4</strong>
+              </li>
+              <li>jQuery</li>
+              <li>Font Awesome</li>
+              <li>Working contact form with validation</li>
+              <li>Unstyled page elements for easy customization</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+          </div>
+        </div>
+        <!-- /.row --
+
+        <hr>
+
+        <!-- Call to Action Section -->
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>-->
+          </div>
+          <div class="col-md-4 pt-2">
+            <a class="btn btn-lg btn-primary btn-block" href="#">ADD PROFILE</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.container -->
+
+      <!-- Footer -->
+      <footer class="footer bg-dark">
+        <div class="container text-center">
+          <span style="color: #fff">&copy; Caretaker App</span>
+        </div>
+      </footer>
+
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+
+  </html>
+
 </div>

@@ -5,18 +5,18 @@ var pool = require('../modules/pool.js');
 //** -- GET ROUTE -- Single Pilltaker -- **//
 router.get('/case/:id', function(req, res) {
   console.log('in server getting pilltaker');
-  console.log('with pilltaker id', req.query.pilltaker_id, ' and caretaker_id: ', req.query.caretaker_id);
+  console.log('with pilltaker id', req.query.pilltaker_id, ' and caretakerid: ', req.query.caretakerid);
 
   var pilltakerID = parseInt(req.query.pilltaker_id);
-  var caretakerID = parseInt(req.query.caretaker_id);
+  var caretakerID = parseInt(req.query.caretakerid);
 
   pool.connect(function(err, client, done, next) {
     if(err) {
       console.log("Error connecting: ", err);
       //next(err);
     }
-    client.query('SELECT * FROM "pilltaker" JOIN "caretaker" ON "pilltaker"."caretaker_id" = "caretaker"."id" ' +
-    'JOIN "job_site" ON "job_site"."id" = "goal"."jobsite_id" WHERE "pilltaker_id" = $1 AND "caretaker"."id" = $2', [pilltaker_id, caretaker_id],
+    client.query('SELECT * FROM "pilltaker" JOIN "caretaker" ON "pilltaker"."caretakerid" = "caretaker"."id" ' +
+    'JOIN "job_site" ON "job_site"."id" = "goal"."jobsite_id" WHERE "id" = $1 AND "caretaker"."id" = $2', [pilltaker_id, caretakerid],
         function (err, result) {
           done();
           if(err) {
