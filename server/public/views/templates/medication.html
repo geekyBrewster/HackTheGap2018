@@ -1,54 +1,94 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
   <!-- Page Content -->
-  <div class="container">
-    <h5>ADD MEDICATION</h5>
-    <hr>
-
-    <!-- Profile Section -->
-    <div class="row">
-      <div class="col-lg-12 mb-2">
-        <form>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">DESCRIPTION</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nickname" ng-model="mc.description">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">NAME</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Prescription Name" ng-model="mc.name">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">FREQUENCY</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="How many times do you take?" ng-model="mc.frequency">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">DOSAGE</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="How many do you need to take?" ng-model="mc.dosage">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">SIDE EFFECTS</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model="mc.sideEffects"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">INSTRUCTIONS</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model="mc.instructions"></textarea>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <!-- Call to Action Section -->
-    <div class="row mb-2">
-      <div class="col-md-8">
-      </div>
-      <div class="col-md-4 pt-1 pb-4">
-        <button class="btn btn-lg btn-primary btn-block" ng-click="mc.addMedication(mc.medName, mc.frequency, mc.dosage,
-        mc.sideEffects, mc.instructions, mc.description)">SAVE</button>
-      </div>
+  <!-- START ADD MEDICATION SECTION -->
+  <h5>ADD MEDICATION</h5>
+  <hr>
+  <!-- Medication Form Section -->
+  <div class="row">
+    <div class="col-lg-12 mb-2">
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">DESCRIPTION</label>
+          <input type="text" class="form-control" placeholder="Nickname" ng-model="mc.description">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">NAME</label>
+          <input type="text" class="form-control" placeholder="Prescription Name" ng-model="mc.medName">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">FREQUENCY</label>
+          <input type="text" class="form-control" placeholder="How many times do you take?" ng-model="mc.frequency">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">DOSAGE</label>
+          <input type="text" class="form-control" placeholder="How many do you need to take?" ng-model="mc.dosage">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">SIDE EFFECTS</label>
+          <textarea class="form-control" rows="3" ng-model="mc.sideEffects"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">INSTRUCTIONS</label>
+          <textarea class="form-control" rows="3" ng-model="mc.instructions"></textarea>
+        </div>
+      </form>
     </div>
   </div>
-  <!-- /.container -->
+  <!-- /.row -->
+  <!-- Button -->
+<!--  <div class="row mb-2">
+    <div class="col-md-4 pt-1 pb-4">
+      <button class="btn btn-lg btn-primary btn-block" ng-click="mc.addMedication(mc.medName, mc.frequency, mc.dosage,
+      mc.sideEffects, mc.instructions, mc.description)">SAVE</button>
+    </div>
+  </div> -->
+  <!-- /.row -->
+  <!-- END ADD MEDICATION SECTION -->
+
+  <!-- START MEDICATION INFO SECTION -->
+  <div class="d-flex justify-content-between">
+  <h5>MEDICATION INFO</h5>
+  <a><p>edit</p></a>
+  </div>
+  <hr>
+  <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> -->
+  <h5 class="pt-2">SCHEDULE REMINDERS</h5>
+  <hr>
+  <!-- Set reminder section -->
+  <div class="row">
+    <div class="col-lg-12 mb-2">
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">PLEASE PICK A TIME</label>
+          <select class="form-control" id="exampleFormControlSelect1" ng-model="mc.reminderTime1">
+            <option>1:00 P.M.</option>
+            <option>2:00 P.M.</option>
+            <option>3:00 P.M.</option>
+            <option>4:00 P.M.</option>
+            <option>5:00 P.M.</option>
+            <option>6:00 P.M.</option>
+            <option>7:00 P.M.</option>
+            <option>8:00 P.M.</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">COMPOSE A MESSAGE</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ng-model="mc.reminder1"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- /.row -->
+  <!-- Button -->
+  <div class="row mb-2">
+    <div class="col-md-4 pt-1 pb-4">
+      <button class="btn btn-lg btn-primary btn-block" ng-click="mc.addMedication(mc.medName, mc.frequency, mc.dosage,
+      mc.sideEffects, mc.instructions, mc.description, 1, mc.reminder1, mc.reminderTime1)">SAVE</button>
+    </div>
+  </div>
+  <!-- /.row -->
+  <!--END MEDICATION INFO SECTION -->
 
 
 

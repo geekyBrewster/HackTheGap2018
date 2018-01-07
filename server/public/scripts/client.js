@@ -19,7 +19,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/caretaker', {
       templateUrl: '/views/templates/caretaker.html',
-      controller: 'CaretakerController as cac'
+      controller: 'CaseController as cc'
     })
     .when('/case', {
       templateUrl: '/views/templates/case.html',

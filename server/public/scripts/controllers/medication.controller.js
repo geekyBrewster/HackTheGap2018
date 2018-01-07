@@ -1,4 +1,4 @@
-myApp.controller('MedicationController', function($http, UserService) {
+myApp.controller('MedicationController', function($http, $location, UserService) {
   console.log('MedicationController created');
   var vm = this;
   vm.userService = UserService;
@@ -7,12 +7,14 @@ myApp.controller('MedicationController', function($http, UserService) {
   vm.medication = [];
   vm.singleMedication = {};
   vm.medicationToAdd = {};
-  vm.pilltakerId = "";
+  vm.pilltakerId = 1;
   var medication = {}; //data object being built and sent to server
 
+  //getAllMedications(vm.pilltakerId);
+
   // Add a medication - Short Form
-  /*vm.addMedication = function(medName, frequency, dosage,
-    sideEffects, instructions, description, pilltakerID){
+  vm.addMedication = function(medName, frequency, dosage,
+    sideEffects, instructions, description, pilltakerID, reminder1, reminderTime1){
     console.log('in addMedication');
 
     medication.medName = medName;
@@ -22,9 +24,30 @@ myApp.controller('MedicationController', function($http, UserService) {
     medication.instructions = instructions;
     medication.description = description;
     medication.pilltakerID = pilltakerID;
+    medication.reminderTime1 = reminderTime1;
+    medication.reminder1 = reminder1;
+
+    console.log("medication to save: ", medication);
 
     $http.post('/medication', medication).then(function(response){
       console.log('received response from addMedication POST');
+      vm.clientToAdd = {};
+      getAllMedications(pilltakerID);
+      $location.path('/user');
+    }).catch(function(){
+      console.log('ERROR adding medication');
+    });
+  };
+
+// UPDATE - Save Reminder Time
+/*  vm.saveReminder = function(reminderMsg, reminderTime){
+    console.log('in addReminder');
+
+    reminder.message = reminderMsg;
+    reminder.time = reminderTime;
+
+    $http.update('/medication', medication).then(function(response){
+      console.log('received response from addReminder UPDATE');
       vm.clientToAdd = {};
       getAllMedications(pilltakerID);
     }).catch(function(){
@@ -33,7 +56,7 @@ myApp.controller('MedicationController', function($http, UserService) {
   };*/
 
   //Add Medication - Long Form
-  vm.addMedication = function(medName, frequency, frequencyUnits, dosage, dosageUnits,
+  /*vm.addMedication = function(medName, frequency, frequencyUnits, dosage, dosageUnits,
     sideEffects, instructions, description, imageURL, notes, reminder1, reminderTime1,
     reminder2, reminderTime2, reminder3, reminderTime3, pilltakerID){
     console.log('in addMedication');
@@ -64,7 +87,7 @@ myApp.controller('MedicationController', function($http, UserService) {
     }).catch(function(){
       console.log('ERROR adding medication');
     });
-  };
+  };*/
 
   // GET All medications for patient
   function getAllMedications(pilltakerID){

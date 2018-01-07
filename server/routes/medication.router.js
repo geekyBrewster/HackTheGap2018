@@ -52,8 +52,48 @@ router.get('/:id', function(req, res) {
   });
 });
 
-//** -- POST ROUTE -- **//
+//** -- POST ROUTE -- SHORT VERSION -- **//
 router.post('/', function(req, res) {
+  console.log('in server making a new medication', req.body);
+
+  var dbQuery = 'insert into medications ("medName", "frequency", ' +
+  '"dosage", "sideEffects", "instructions", "description", ' +
+  '"notes", "reminder1", "reminderTime1", "pilltakerID") ' +
+  'values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)';
+
+  var medName = req.body.medName;
+  var frequency = req.body.frequency;
+  var dosage = req.body.dosage;
+  var sideEffects = req.body.sideEffects;
+  var instructions = req.body.instructions;
+  var description = req.body.description;
+  var notes = req.body.notes;
+  var reminder1 = req.body.reminder1;
+  var reminderTime1 = req.body.reminderTime1;
+  var pilltakerID = req.body.pilltakerID;
+
+  pool.connect(function(err, client, done, next) {
+    if(err) {
+      console.log("Error connecting: ", err);
+      //next(err);
+    }
+    client.query(dbQuery, [medName, frequency, dosage, sideEffects,
+      instructions, description, notes, reminder1, reminderTime1, pilltakerID],
+        function (err, result) {
+          done();
+          if(err) {
+            console.log("Error inserting data: ", err);
+            //next(err);
+          } else {
+            console.log('RESULT ROWS', result.rows);
+            res.send(result.rows);
+          }
+    });
+  });
+});
+
+//** -- POST ROUTE -- **//
+/*router.post('/', function(req, res) {
   console.log('in server making a new medication', req.body);
 
   var dbQuery = 'insert into medications ("medName", "frequency", "frequencyUnits", ' +
@@ -98,7 +138,7 @@ router.post('/', function(req, res) {
           }
     });
   });
-});
+});*/
 
 //** -- DELETE ROUTE -- **//
 router.delete('/:id', function(req, res) {
