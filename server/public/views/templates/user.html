@@ -1,111 +1,80 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
 
-    <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
-    <!DOCTYPE html>
-    <html lang="en">
-
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>Caretaker App</title>
-
-        <!-- Bootstrap core CSS -->
-        <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-
-        <!-- Custom styles for this template -->
-        <!-- <link href="css/style.css" rel="stylesheet"> -->
-
-        <!-- Font Awesome Icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-      </head>
-
-      <header>
-          <!-- Fixed navbar -->
-          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary text-white">
-            <span class="navbar-brand">Caretaker App</span>
-          </nav>
-        </header>
-
-      <body>
-        <!-- Page Content -->
-        <div class="container">
-          <h5>Schedule</h5>
-          <hr>
-          <div class="d-flex justify-content-between">
-          <p>Today, May 14th, 2018</p>
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          </div>
-          <!-- Profile Section -->
-          <div class="row">
-            <div class="col-lg-12 mb-2">
-              <div class="card h-100">
-                <div class="card-body bg-green text-white d-flex justify-content-between">
-                  <div class="card-text">DANNY</div>
-                  <div class="card-text">8:00 A.M. <i class="fa fa-caret-right" aria-hidden="true"></i></div>
-                </div>
+  <!-- Page Content -->
+  <div class="container">
+    <h5>Schedule</h5>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <p>Today, May 14th, 2018</p>
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+    </div>
+    <!-- Profile Section -->
+    <div ng-repeat="person in uc.patients">
+      <div class="row">
+        <div class="col-lg-12 mb-2">
+          <div class="card h-100">
+            <div class="card-body bg-green text-white d-flex justify-content-between">
+              <div class="card-text">{{person.firstName}}</div>
+              <div class="">
+                <span></span>
               </div>
+              <div class="card-text">{{person.lastName}} <i class="fa fa-caret-right" aria-hidden="true"></i></div>
             </div>
           </div>
-          <!-- /.row -->
-          <div class="row">
-            <div class="col-lg-12 mb-2">
-              <div class="card h-100">
-                <div class="card-body bg-dblue text-white d-flex justify-content-between">
-                  <div class="card-text">SARAH</div>
-                  <div class="card-text">12:00 P.M. <i class="fa fa-caret-right" aria-hidden="true"></i></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /.row -->
-          <div class="row">
-            <div class="col-lg-12 mb-2">
-              <div class="card h-100">
-                <div class="card-body bg-red text-white d-flex justify-content-between">
-                  <div class="card-text">MOM</div>
-                  <div class="card-text">3:00 P.M. <i class="fa fa-caret-right" aria-hidden="true"></i></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /.row -->
-
-          <!-- Call to Action Section -->
-          <div class="row mb-4">
-            <div class="col-md-8">
-              <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>-->
-            </div>
-            <div class="col-md-4">
-              <a class="btn btn-lg btn-primary btn-block" href="#">ADD PROFILE</a>
-            </div>
-          </div>
-
         </div>
-        <!-- /.container -->
+      </div>
+    </div>
+<!--
+    <div class="row">
+      <div class="col-lg-12 mb-2">
+        <div class="card h-100">
+          <div class="card-body bg-green text-white d-flex justify-content-between">
+            <div class="card-text">Danny</div>
+            <div class="card-text">8:00 A.M. <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-lg-12 mb-2">
+        <div class="card h-100">
+          <div class="card-body bg-dblue text-white d-flex justify-content-between">
+            <div class="card-text">SARAH</div>
+            <div class="card-text">12:00 P.M. <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-lg-12 mb-2">
+        <div class="card h-100">
+          <div class="card-body bg-red text-white d-flex justify-content-between">
+            <div class="card-text">MOM</div>
+            <div class="card-text">3:00 P.M. <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+ -->
 
+    <!-- Call to Action Section -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>-->
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-lg btn-primary btn-block" href="#">ADD PROFILE</a>
+      </div>
+    </div>
 
-    <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
-</div>
-
-
-<!-- Footer -->
-<footer class="footer bg-dark">
-  <div class="container text-center">
-    <span class="text-white">&copy; Caretaker App</span>
   </div>
-</footer>
+  <!-- /.container -->
 
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-</body>
 
-</html>
+
+  <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+</div>

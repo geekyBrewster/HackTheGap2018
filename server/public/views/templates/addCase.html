@@ -1,83 +1,38 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-<!DOCTYPE html>
-<html lang="en">
+<!-- Page Content -->
+<div class="container">
+  <h5>CREATE PROFILE</h5>
+  <hr>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Caretaker App</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  </head>
-
-  <header>
-      <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary text-white">
-        <span class="navbar-brand">Caretaker App</span>
-      </nav>
-    </header>
-
-  <body>
-    <!-- Page Content -->
-    <div class="container">
-      <h5>CREATE PROFILE</h5>
-      <hr>
-
-      <!-- Profile Section -->
-      <div class="row">
-        <div class="col-lg-12">
-          <form>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">NAME</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nickname" ng-model="cc.firstName">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">DATE OF BIRTH</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY" ng-model="cc.dob">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlInput1">PHONE NUMBER</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="(XXX) XXX-XXXX" ng-model="cc.phone">
-            </div>
-          </form>
+  <!-- Profile Section -->
+  <div class="row">
+    <div class="col-lg-12">
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">NAME</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nickname" ng-model="cc.firstName">
         </div>
-      </div>
-      <!-- /.row -->
-
-      <!-- Call to Action Section -->
-      <div class="row mb-4">
-        <div class="col-md-8">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">DATE OF BIRTH</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="MM/DD/YYYY" ng-model="cc.dob">
         </div>
-        <div class="col-md-4">
-          <button class="btn btn-lg btn-primary btn-block" ng-click="cc.addPilltaker(firstName, lastName, dob, phone, notes, caretakerID)">SAVE</button>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">PHONE NUMBER</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="(XXX) XXX-XXXX" ng-model="cc.phone">
         </div>
-      </div>
+      </form>
     </div>
-    <!-- /.container -->
+  </div>
+  <!-- /.row -->
 
-    <!-- Footer -->
-    <footer class="footer bg-dark">
-      <div class="container text-center">
-        <span class="text-white">&copy; Caretaker App</span>
-      </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-
-  </body>
-
-</html>
+  <!-- Call to Action Section -->
+  <div class="row mb-4">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-lg btn-primary btn-block" ng-click="cc.addPilltaker(firstName, lastName, dob, phone, notes, caretakerID)">SAVE</button>
+    </div>
+  </div>
+</div>
+<!-- /.container -->
