@@ -30,16 +30,7 @@ myApp.controller('CaseController', function($http, UserService) {
     });
   };
 
-  // GET all pilltakers for a caretaker
-  vm.getAllPilltakers = function(caretaker_id){
-    console.log('in getAllPilltakers');
 
-    $http.get('/case/all/' + caretaker_id).then(function(response) {
-      console.log(response.data);
-      vm.allPilltakers = response.data;
-      console.log('all pilltakers for caretaker:', vm.allPilltakers);
-    });
-  };
 
   // GET single pilltaker for a caretaker
   vm.getOnePilltaker = function(caretaker_id, pilltaker_id){
