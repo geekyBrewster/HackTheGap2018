@@ -3,27 +3,33 @@
   <!-- Page Content -->
   <div class="container">
     <div class="d-flex justify-content-between">
-      <h5>PROFILE INFO</h5>
-      <a href="#"><p>edit</p></a>
+      <h3>PROFILE INFO</h3>
+      <!--<a href="#"><p>edit</p></a>-->
     </div>
     <hr>
-    <p><strong>NAME:</strong><span ng-model="cc.pilltaker.firstName">{{cc.pilltaker.firstName}}</span> <br />
-      <strong>D.O.B:</strong><span ng-model="cc.pilltaker.dob">{{cc.pilltaker.dob}} </span><br />
-      <strong>PHONE:</strong> <span ng-model="cc.pilltaker.phone">{{cc.pilltaker.phone}} </span></p>
+    <p><strong>NAME:</strong><span ng-model="cc.pilltakerData[0].firstName">{{cc.pilltakerData[0].firstName}}</span> <br />
+      <strong>D.O.B:</strong><span ng-model="cc.pilltakerData[0].dob">{{cc.pilltakerData[0].dob}} </span><br />
+      <strong>PHONE:</strong> <span ng-model="cc.pilltakerData[0].phone">{{cc.pilltakerData[0].phone}} </span></p>
       <h5 class="pt-2">MEDICATION INFO</h5>
       <hr>
       <!-- Profile Section -->
-      <div class="row">
-        <div class="col-lg-12 mb-2">
-          <div class="card h-100">
-            <div class="card-body bg-green text-white d-flex justify-content-between">
-              <div class="card-text"><span ng-model="cc.pilltaker.medName">{{cc.pilltaker.medName}}</span></div>
-              <div class="card-text"><span ng-model="cc.pilltaker.doseage">{{cc.pilltaker.doseage}}</span> <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+      <div ng-repeat="med in cc.pilltakerData">
+        <div class="row">
+          <div class="col-lg-12 mb-2">
+            <div class="card h-100">
+              <div class="card-body bg-green text-white d-flex justify-content-between">
+                <div class="card-text"><span ng-model="med.medName">{{med.medName}}</span></div>
+                <div class="card-text"><span ng-model="med.dosage">{{med.dosage}}</span> <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+              </div>
             </div>
           </div>
         </div>
+        <hr>
       </div>
+
+      <hr>
       <!-- /.row -->
+      <!--
       <div class="row">
         <div class="col-lg-12 mb-2">
           <div class="card h-100">
@@ -34,7 +40,7 @@
           </div>
         </div>
       </div>
-      <!-- /.row -->
+
       <div class="row">
         <div class="col-lg-12 mb-2">
           <div class="card h-100">
@@ -45,7 +51,7 @@
           </div>
         </div>
       </div>
-      <!-- /.row -->
+      -->
 
       <!-- Call to Action Section -->
       <div class="row mb-2">
@@ -53,7 +59,7 @@
           <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>-->
         </div>
         <div class="col-md-4">
-          <button class="btn btn-lg btn-primary btn-block" ng-click="cc.saveSomething()">ADD MEDICATION</button>
+          <a class="btn btn-lg btn-primary btn-block" href="#/medication">ADD MEDICATION</a>
         </div>
       </div>
 
