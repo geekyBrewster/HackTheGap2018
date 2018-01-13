@@ -1,4 +1,4 @@
-myApp.controller('TwilioController', function($http, UserService) {
+myApp.controller('TwilioController', function($http,$rootScope,$scope,  UserService) {
   console.log('TwilioController created');
   var msg = this;
   msg.userService = UserService;
@@ -8,27 +8,31 @@ myApp.controller('TwilioController', function($http, UserService) {
   msg.reminder = {};
   msg.reminderToAdd = {};
 
-  // Add a message
-  msg.addReminder = function(){
-    console.log('in addReminder');
-    $http.post('/twilio', msg.reminderToAdd).then(function(response){
-      console.log('received response from addReminder POST');
-      msg.clientToAdd = {};
-      getAllReminders();
-    }).catch(function(){
-      console.log('ERROR adding medication');
-    });
-  };
 
-  // GET All medications
-  function getAllReminders(){
-    console.log('in getAllRemidners');
-    $http.get('/twilio').then(function(response) {
-      console.log(response.data);
-      msg.reminder = response.data;
-      console.log('medication array is:', msg.reminder);
-    });
-  }
+
+  // $rootScope.$broadcast("TwilioMessage");}
+
+  // Add a message
+  // msg.addReminder = function(){
+  //   console.log('in addReminder');
+  //   $http.post('/twilio', msg.reminderToAdd).then(function(response){
+  //     console.log('received response from addReminder POST');
+  //     msg.clientToAdd = {};
+  //     getAllReminders();
+  //   }).catch(function(){
+  //     console.log('ERROR adding medication');
+  //   });
+  // };
+  //
+  // // GET All medications
+  // function getAllReminders(){
+  //   console.log('in getAllRemidners');
+  //   $http.get('/twilio').then(function(response) {
+  //     console.log(response.data);
+  //     msg.reminder = response.data;
+  //     console.log('medication array is:', msg.reminder);
+  //   });
+  // }
 
   // // GET a medication
   // msg.getOneMedication = function(med_id){

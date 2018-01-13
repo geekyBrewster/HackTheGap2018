@@ -34,10 +34,12 @@ app.use(passport.session());
 // Routes
 app.use('/register', registerRouter);
 app.use('/user', userRouter);
+//app.use('/hello', userRouter);
 app.use('/medication', medicationRouter);
 app.use('/caretaker', caretakerRouter);
 app.use('/case', pilltakerRouter);
 app.use('/twilio', twilioRouter);
+
 
 
 

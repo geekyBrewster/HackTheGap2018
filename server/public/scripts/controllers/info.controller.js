@@ -1,21 +1,29 @@
-myApp.controller('InfoController', function($http, UserService) {
+myApp.controller('InfoController', function($http, $location, UserService) {
+
   console.log('InfoController created');
   var vm = this;
   vm.userService = UserService;
   vm.allPilltakers = [];
-  var caretaker_id = 1;
+  var caretakerID = 1;
 
-  // GET all pilltakers for a caretaker
-  vm.getAllPilltakers = function(caretaker_id){
-    console.log('in getAllPilltakers');
+  // // GET all pilltakers for a caretaker
+  // vm.getAllPilltakers = function(caretakerID){
+  //   console.log('in getAllPilltakers');
+  //
+  //   $http.get('/case/all/' + caretakerID).then(function(response) {
+  //     console.log(response.data);
+  //     vm.allPilltakers = response.data;
+  //     console.log('all pilltakers for caretaker:', vm.allPilltakers);
+  //   });
+  // };
 
-    $http.get('/case/all/' + caretaker_id).then(function(response) {
-      console.log(response.data);
-      vm.allPilltakers = response.data;
-      console.log('all pilltakers for caretaker:', vm.allPilltakers);
-    });
-  };
-
-vm.getAllPilltakers(caretaker_id);
-
+//   vm.profileFunction = function () {
+//     alert("You clicked a button");
+//
+//   //  $rootScope.$broadcast("TwilioMessage");}
+//
+//
+//    vm.getAllPilltakers(caretakerID);
+//
+// });
 });

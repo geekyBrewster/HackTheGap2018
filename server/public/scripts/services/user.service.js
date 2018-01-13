@@ -31,6 +31,15 @@ myApp.factory('UserService', function($http, $location){
         console.log('UserService -- logout -- logged out');
         $location.path("/home");
       });
+    },
+
+    sendMessage : function() {
+      console.log('UserService -- Send MEssage enter');
+      $http.get('/user/hello').then(function(response) {
+        console.log(JSON.stringify(response.data));
+        console.log('Send Message');
+        //$location.path("/home");
+      });
     }
   };
 });

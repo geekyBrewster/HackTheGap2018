@@ -81,8 +81,11 @@
               <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>-->
             </div>
             <div class="col-md-4">
-              <a class="btn btn-lg btn-primary btn-block" href="#">ADD PROFILE</a>
-            </div>
+                <button class="btn btn-default" ng-click="uc.userService.sendMessage()">ADD PROFILE</button>
+              </div>
+              <!-- <a class="btn btn-lg btn-primary btn-block" ng-href="/hello1">ADD PROFILE</a>
+
+            </div> -->
           </div>
 
         </div>
@@ -90,6 +93,7 @@
 
 
 
+        <button class="btn btn-default" ng-click="uc.userService.sendMessage()">ADD PROFILE</button>
 
     <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
 </div>

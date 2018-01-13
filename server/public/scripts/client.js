@@ -7,7 +7,12 @@ myApp.config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/home', {
       templateUrl: '/views/templates/home.html',
-      controller: 'LoginController as lc',
+      controller: 'LoginController as lc'
+    })
+    .when('/hello', {
+      templateUrl: '/views/templates/info.html',
+      controller:'TwilioController as tc',
+
     })
     .when('/register', {
       templateUrl: '/views/templates/register.html',
