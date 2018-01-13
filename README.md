@@ -28,6 +28,8 @@ CREATE TABLE "users" (
 ```
 - Register a new log in order to enter site
 
+- Create a config.js file and place it in the Server folder. This file will contain your Twilio account credentials and phone numbers to use w/ the text message service.
+
 ### Prerequisites
 
 Link to software that is required to install the app (e.g. node).
@@ -56,20 +58,25 @@ CREATE TABLE "users" (
 ### Completed Features
 
 - [x] Allow caretaker to add medications
-- [x] Caretaker can send medication reminders to their loved ones
+- [x] Caretaker can send medication reminders to their loved ones using Twilio
 
 ### Next Steps
 
+- [ ] Send text messages at pre-scheduled times
 - [ ] View medication schedule on a calendar
 - [ ] Send message reminders on a save schedule
 - [ ] Incorporate IoT and SmartTV integration for reminder messages
 
-
 ## Authors
 
-* Name of author(s)
-
+* Katie Whalen
+* Amanda Kirchner
+* Stephanie Freund
+* Amelie Collins
+* Anna Katherine Baker
+* Jackie Torborg
 
 ## Acknowledgments
 
+* Thanks to Beth for helping out the group on the non-coding side
 * Prime Academy for the SEAN stack app shell
