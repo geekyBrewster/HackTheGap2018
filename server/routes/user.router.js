@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var config = require('../config');
 
-const accountSid = 'ACbc06df4266fb7f75f17c2b3ff85c6362';
-const authToken = '1729a8876b53509620ddf7b74d5e749f';
+const accountSid = config.accountSid;
+const authToken = config.authToken;
 
 // require the Twilio module and create a REST client
 const client = require('twilio')(accountSid, authToken);
@@ -30,8 +31,8 @@ router.get('/hello',function(req,res){
 console.log('get /hello route');
 client.messages
 .create({
-to: '+17633029886',
-from: '+16122497250',
+to: config.senderNum,
+from: config.receiverNum,
 body: 'Hey Jane wanted to see how you are doing today since you started a new medication',
 })
 .then(message => console.log(message.sid)).catch(error=>console.log(error));
