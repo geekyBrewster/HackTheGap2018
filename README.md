@@ -38,7 +38,7 @@ Link to software that is required to install the app (e.g. node).
 - [AngularJS](https://angularjs.org/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Express](http://expressjs.com/)
-- [Twilio] (https://www.twilio.com/)
+- [Twilio](https://www.twilio.com/)
 
 ### Installing
 
