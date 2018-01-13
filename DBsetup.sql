@@ -16,7 +16,7 @@ CREATE TABLE "users" (
  	"id" serial primary key,
  	"firstName" varchar(150),
  	"lastName" varchar(150),
- 	"dob" date,
+ 	"dob" varchar(100),
  	"phone" int,
  	"notes" varchar(500),
  	"caretakerID" int references users(id)
@@ -45,4 +45,20 @@ CREATE TABLE "medications" (
  );
 
  -- Add Mock Data --
- 
+--** Register TWO new users BEFORE adding mock data below **--
+
+INSERT INTO pilltakers ("firstName", "lastName", "dob", "phone", "notes", "caretakerID")
+VALUES ('Bob', 'Fett', 'Oct. 31, 1960', '6125551234', 'Doesn''t like to take his meds', 1);
+
+INSERT INTO pilltakers ("firstName", "lastName", "dob", "phone", "notes", "caretakerID")
+VALUES ('Sasha', 'Johnson', 'Mar. 3, 1951', '9525550987', 'Needs to take most meds with food', 1);
+
+INSERT INTO pilltakers ("firstName", "lastName", "dob", "phone", "notes", "caretakerID")
+VALUES ('William', 'DaFoe', 'June 13, 1958', '5075557987', 'Forgets to read the med labels', 2);
+
+INSERT INTO medications ("medName", "frequency", "frequencyUnits", "dosage","dosageUnits", "sideEffects",
+  "instructions", "description", "imageURL", "notes", "reminder1", "reminderTime1", "reminder2",
+  "reminderTime2", "reminder3", "reminderTime3", "pilltakerID")
+VALUES ('Warfarin', '2', 'day', '10','mg', 'Extra bleeding, drowsiness',
+  'instructions', 'description', 'imageURL', 'notes', 'reminder1', 'reminderTime1', 'reminder2',
+  'reminderTime2', 'reminder3', 'reminderTime3', 'pilltakerID');

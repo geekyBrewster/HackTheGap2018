@@ -25,6 +25,10 @@ myApp.config(function($routeProvider, $locationProvider) {
       templateUrl: '/views/templates/case.html',
       controller: 'CaseController as cc'
     })
+    .when('/addCase', {
+      templateUrl: '/views/templates/addCase.html',
+      controller: 'CaseController as cc'
+    })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController as uc',
@@ -43,6 +47,24 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/prescriptions', {
+      templateUrl: '/views/templates/prescriptions.html',
+      controller: 'MedicationController as mc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    // .when('/twilio', {
+    //   templateUrl: '/views/templates/twilio.html',
+    //   controller: 'InfoController',
+    //   resolve: {
+    //     getuser : function(UserService){
+    //       return UserService.getuser();
+    //     }
+    //   }
+    // })
     .otherwise({
       redirectTo: 'home'
     });

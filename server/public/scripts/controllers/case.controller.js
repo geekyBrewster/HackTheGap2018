@@ -4,25 +4,28 @@ myApp.controller('CaseController', function($http, UserService) {
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
 
-  vm.caretaker = {};
   vm.pilltaker = {};
+  vm.pilltakerData = [];
+  vm.testPilltaker = {firstName: 'Boba', lastName: 'Fett', dob: 'Dec. 01 1970'};
   vm.allPilltakers = [];
+  var pilltakerObject = {};
 
-  // Add caretaker details
-  vm.addCaretaker = function(){
-    console.log('in addCaretaker');
-    $http.post('/caretaker', vm.caretaker).then(function(response){
-      console.log('received response from addCaretaker POST');
-      vm.caretaker = {};
-    }).catch(function(){
-      console.log('ERROR adding caretaker');
-    });
-  };
+  getOnePilltaker(1);
 
   // Add pilltaker details
-  vm.addPilltaker = function(){
+  vm.addPilltaker = function(firstName, lastName, dob, phone, notes, caretakerID){
     console.log('in addPilltaker');
-    $http.post('/case', vm.pilltaker).then(function(response){
+
+    pilltakerObject.firstName = firstName;
+    pilltakerObject.lastName = lastName;
+    pilltakerObject.dob = dob;
+    pilltakerObject.phone = phone;
+    pilltakerObject.notes = notes;
+    pilltakerObject.caretakerID = caretakerID;
+
+    console.log('pilltaker to add: ', pilltakerObject);
+
+    $http.post('/', pilltakerObject).then(function(response){
       console.log('received response from addPilltaker POST');
       vm.pilltaker = {};
     }).catch(function(){
@@ -30,48 +33,35 @@ myApp.controller('CaseController', function($http, UserService) {
     });
   };
 
-  // GET all pilltakers for a caretaker
-  vm.getAllPilltakers = function(caretaker_id){
-    console.log('in getAllPilltakers');
-
-    $http.get('/case/all/' + caretaker_id).then(function(response) {
-      console.log(response.data);
-      vm.allPilltakers = response.data;
-      console.log('all pilltakers for caretaker:', vm.allPilltakers);
-    });
-  };
-
   // GET single pilltaker for a caretaker
-  vm.getOnePilltaker = function(caretaker_id, pilltaker_id){
+  function getOnePilltaker(pilltakerID){
     console.log('in getOnePilltaker');
 
-    var config = { params: {
-      caretaker_id: caretaker_id,
-      pilltaker_id: pilltaker_id
-    }};
+    $http.get('/case/' + pilltakerID).then(function(response) {
+      console.log("pilltaker's data:", response.data);
+      vm.pilltakerData = response.data;
+      console.log('single pilltaker\'s data is:', vm.pilltakerData);
+    });
+  }
 
-    $http.get('/case/' + config).then(function(response) {
+  // GET single pilltaker for a caretaker
+  vm.getAllPilltaker = function(caretakerID){
+    console.log('in getAllPilltakers');
+
+    $http.get('/all/' + caretakerID).then(function(response) {
       console.log(response.data);
-      vm.pilltaker = response.data;
-      console.log('single pilltaker is:', vm.pilltaker);
+      vm.allPilltakers = response.data;
+      console.log('single pilltaker is:', vm.allPilltakers);
     });
   };
 
   // Delete a pilltaker
-  vm.deletePilltaker = function(pilltaker_id) {
-      console.log('delete pilltaker w/ id: ' + pilltaker_id);
-      $http.delete('/case/' + pilltaker_id)
+  vm.deletePilltaker = function(pilltakerID) {
+      console.log('delete pilltaker w/ id: ' + pilltakerID);
+      $http.delete('/' + pilltakerID)
         .then(function(response){
           getAllPilltakers();
         });
     };
 
-    // Delete caretaker details
-    vm.deleteCaretakerDetails = function(caretaker_id) {
-        console.log('delete caretaker details w/ id: ' + caretaker_id);
-        $http.delete('/caretaker/' + caretaker_id)
-          .then(function(response){
-            console.log('caretaker details deleted');
-          });
-      };
 }); //End of controller
